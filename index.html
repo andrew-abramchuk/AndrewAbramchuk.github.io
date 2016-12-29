@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+
+<head>
+    <title>Business books - The New York Times</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="https://www.insidehighered.com/sites/default/server_files/media/nyt-t-logo.png" type="image/png">
+</head>
+
+<body>
+    <img class="img" src="https://gclibrary.commons.gc.cuny.edu/files/2014/04/nytimes-white.png">
+    <div class="filter" id="fil">
+        <h2>Filter
+            <input type="text" size="10"  style="text-align:center;" ng-model="filt"></input>
+  </h2>
+    </div>
+
+    <div class="wrap" ng-controller="firstController">
+        <div class="col-lg-6 col-xs-12 books" ng-repeat='result in results| limitTo : filt'>
+            <h2>{{result.book_details[0].title}}</h2>
+            <h3 class="writenBy">by {{result.book_details[0].author}} | {{result.book_details[0].publisher}}</h3>
+            <p class="abstr">{{result.book_details[0].description}}</p>
+            <p><a href={{result.amazon_product_url}}>Further...</a>
+            </p>
+        </div>
+
+        <div class=" addPost" id="showPost">
+            <h2>{{factor.postInf.title}}</h2>
+            <h3 class="writenBy">Publisher: {{factor.postInf.writenBy}}</h3>
+            <p class="abstr">{{factor.postInf.abstr}}</p>
+            <p><a href="{{factor.postInf.link}}">Further...</a>
+            </p>
+        </div>
+
+    </div>
+
+    <img class="img" src="http://4.bp.blogspot.com/-zPEiZJL8v3k/UTNa5S5S8nI/AAAAAAAAKsM/StQLkwCqLYQ/s1600/nyt2.jpg">
+
+    <div class="wrap_form" ng-controller="fromForm">
+        <h2>Add post</h2>
+        <form>
+            <div class="form-group">
+                <h3 for="title">Title</h3>
+                <input type="text" id="title" class="form-control" ng-model="post.title" placeholder="Title"></input>
+            </div>
+
+            <div class="form-group">
+                <h3 for="writenBy">Author and Publisher</h3>
+                <input type="text" id="writenBy" class="form-control" ng-model="post.writenBy" placeholder="Who is?"></input>
+            </div>
+
+            <div class="form-group">
+                <h3 for="abstr">Description</h3>
+                <textarea ng-model="post.abstr" class="form-control" rows="5" placeholder="Description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <h3 for="link">Link to Amazon.com</h3>
+                <input type="url" id="link" class="form-control" ng-model="post.link" placeholder="Link"></input>
+            </div>
+
+            <button type="submit" ng-click="save(post)" class="btn" onclick='document.getElementById("showPost").style.display="inline-block"; document.getElementById("fil").style.display="block";'>Add Post</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

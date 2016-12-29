@@ -1,0 +1,101 @@
+body {
+    background-color: white;
+    padding-bottom: 30px;
+}
+.wrap {
+    display: inline-block;
+}
+.books {
+    border-radius: 3px;
+    border: solid black 1px;
+    height: 190px;
+    margin: 10px;
+    width: 40%;
+    overflow-y: auto;
+}
+.addPost {
+    margin-left: 120px;
+    width: 40%;
+    height: 230px;
+    border: 1px solid black;
+    display: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding: 0px 15px;
+    background: white;
+}
+.books:nth-child(odd) {
+    margin-left: 9%;
+}
+.abstr {
+    font-weight: 100;
+}
+p {
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 120%;
+}
+h2 {
+    color: black;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    line-height: 1;
+}
+h3 {
+    margin-top: 0pt;
+}
+.writenBy {
+    color: #211f1f;
+    font-style: italic;
+}
+.img {
+    margin: auto;
+    display: block;
+}
+.wrap_form {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 35%;
+    margin: 0 auto;
+}
+.filter h2 {
+    font-size: 150%;
+}
+.filter {
+    text-align: right;
+    margin-bottom: 15px;
+    margin-right: 10%;
+}
+.btn {
+    background: black;
+    color: white;
+    font-size: 12pt;
+}
+@media only screen and (max-width: 1200px) {
+    .filter {
+        margin-right: 9%;
+    }
+    .wrap_form {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .books:nth-child(odd) {
+        margin-left: 5%;
+    }
+    .books {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .wrap_form {
+        width: 70%;
+    }
+    .addPost {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .filter {
+        margin-right: 5%;
+    }
+}
