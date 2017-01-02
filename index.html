@@ -12,18 +12,19 @@
 
 <body>
     <img class="img" src="https://gclibrary.commons.gc.cuny.edu/files/2014/04/nytimes-white.png">
-    <div class="filter" id="fil">
-        <h2>Filter
+    <div class="filter" id="filte">
+        <h2>FilterLimit
             <input type="text" size="10"  style="text-align:center;" ng-model="filt"></input>
   </h2>
+
     </div>
 
     <div class="wrap" ng-controller="firstController">
-        <div class="col-lg-6 col-xs-12 books" ng-repeat='result in results| limitTo : filt'>
+        <div class="col-lg-6 col-xs-12 books" ng-repeat='result in results| myLimitTo:filt'>
             <h2>{{result.book_details[0].title}}</h2>
             <h3 class="writenBy">by {{result.book_details[0].author}} | {{result.book_details[0].publisher}}</h3>
             <p class="abstr">{{result.book_details[0].description}}</p>
-            <p><a href={{result.amazon_product_url}}>Further...</a>
+            <p><a href={{result.amazon_product_url}}>further...</a>
             </p>
         </div>
 
@@ -31,7 +32,7 @@
             <h2>{{factor.postInf.title}}</h2>
             <h3 class="writenBy">Publisher: {{factor.postInf.writenBy}}</h3>
             <p class="abstr">{{factor.postInf.abstr}}</p>
-            <p><a href="{{factor.postInf.link}}">Further...</a>
+            <p><a href="{{factor.postInf.link}}">further...</a>
             </p>
         </div>
 
