@@ -7,8 +7,5 @@ app.controller('firstController', ["$http", "$scope", "factor", function($http, 
             console.log(data);
             console.log(status);
         });
-    $scope.filt;
-
-    $scope.postInf = {};
     $scope.factor = factor;
 }]);
