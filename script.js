@@ -9,15 +9,11 @@ app.controller('firstController', ["$http", "$scope", "factor", function($http, 
             console.log(data);
             console.log(status);
         });
-    $scope.filt;
-    $scope.postInf = {};
-    $scope.factor = factor;
 
+    $scope.factor = factor;
 }]);
 
-app.controller('fromForm', [function($scope, factor) {
-    $scope.postInf = {};
-    $scope.factor = factor;
+app.controller('fromForm', ["$scope", "factor", function($scope, factor) {
     $scope.save = function(post) {
         angular.copy(post, factor.postInf);
     }
